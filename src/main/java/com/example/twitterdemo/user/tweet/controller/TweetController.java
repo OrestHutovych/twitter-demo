@@ -1,6 +1,8 @@
 package com.example.twitterdemo.user.tweet.controller;
 
+import com.example.twitterdemo.user.tweet.entity.TweetEditRequest;
 import com.example.twitterdemo.user.tweet.entity.TweetResponse;
+import com.example.twitterdemo.user.tweet.usecase.TweetEditUseCase;
 import com.example.twitterdemo.user.tweet.usecase.TweetUseCase;
 import com.example.twitterdemo.user.tweet.entity.TweetAddRequest;
 import jakarta.validation.Valid;
@@ -13,10 +15,16 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 public class TweetController {
     private final TweetUseCase tweetUseCase;
-
+    private final TweetEditUseCase tweetEditUseCase;
     @PostMapping("/add_tweet")
     @ResponseStatus(HttpStatus.CREATED)
     public TweetResponse addTweet(@Valid @RequestBody TweetAddRequest request){
         return tweetUseCase.addTweet(request);
+    }
+
+    @PutMapping("/edit_tweet")
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    public TweetResponse editTweet(@Valid @RequestBody TweetEditRequest request){
+        return tweetEditUseCase.editTweet(request);
     }
 }

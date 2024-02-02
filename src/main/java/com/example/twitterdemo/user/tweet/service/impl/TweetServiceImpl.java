@@ -6,6 +6,8 @@ import com.example.twitterdemo.user.tweet.service.TweetService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 @RequiredArgsConstructor
 public class TweetServiceImpl implements TweetService {
@@ -13,5 +15,15 @@ public class TweetServiceImpl implements TweetService {
     @Override
     public Tweet createTweet(Tweet tweet) {
         return tweetRepository.save(tweet);
+    }
+
+    @Override
+    public Tweet editTweet(Tweet tweet) {
+        return tweetRepository.save(tweet);
+    }
+
+    @Override
+    public Optional<Tweet> findTweetById(long tweetId) {
+        return tweetRepository.findById(tweetId);
     }
 }
