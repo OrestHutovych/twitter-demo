@@ -2,6 +2,7 @@ package com.example.twitterdemo.user.tweet.controller;
 
 import com.example.twitterdemo.user.tweet.entity.TweetEditRequest;
 import com.example.twitterdemo.user.tweet.entity.TweetResponse;
+import com.example.twitterdemo.user.tweet.usecase.TweetDeleteUseCase;
 import com.example.twitterdemo.user.tweet.usecase.TweetEditUseCase;
 import com.example.twitterdemo.user.tweet.usecase.TweetUseCase;
 import com.example.twitterdemo.user.tweet.entity.TweetAddRequest;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 public class TweetController {
     private final TweetUseCase tweetUseCase;
     private final TweetEditUseCase tweetEditUseCase;
+    private final TweetDeleteUseCase tweetDeleteUseCase;
     @PostMapping("/add_tweet")
     @ResponseStatus(HttpStatus.CREATED)
     public TweetResponse addTweet(@Valid @RequestBody TweetAddRequest request){
@@ -26,5 +28,11 @@ public class TweetController {
     @ResponseStatus(HttpStatus.ACCEPTED)
     public TweetResponse editTweet(@Valid @RequestBody TweetEditRequest request){
         return tweetEditUseCase.editTweet(request);
+    }
+
+    @DeleteMapping("/{tweet_id}")
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    public void deleteTweet(@PathVariable(name = "tweet_id") long tweetId){
+        tweetDeleteUseCase.deleteTweet(tweetId);
     }
 }

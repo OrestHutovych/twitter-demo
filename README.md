@@ -10,3 +10,4 @@ http://localhost:8081/api/v1/accounts/register [POST] - Create account
 http://localhost:8081/api/v1/user_profile/register [POST] - Create user profile
 http://localhost:8081/api/v1/tweets/add_tweet [POST] - Add tweet
 http://localhost:8081/api/v1/tweets/edit_tweet [PUT] - Edit tweet
+http://localhost:8081/api/v1/tweets/{tweet_id} [DELETE] - Delete tweet
