@@ -8,6 +8,7 @@ import com.example.twitterdemo.user.tweet.usecase.TweetEditUseCase;
 import com.example.twitterdemo.user.tweet.usecase.TweetUseCase;
 import com.example.twitterdemo.user.tweet.entity.TweetAddRequest;
 import jakarta.validation.Valid;
+import jakarta.websocket.server.PathParam;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -22,6 +23,7 @@ public class TweetController {
     private final TweetEditUseCase tweetEditUseCase;
     private final TweetDeleteUseCase tweetDeleteUseCase;
     private final FindTweetUseCase findTweetUseCase;
+
     @PostMapping("/add_tweet")
     @ResponseStatus(HttpStatus.CREATED)
     public TweetResponse addTweet(@Valid @RequestBody TweetAddRequest request){
@@ -40,8 +42,7 @@ public class TweetController {
         tweetDeleteUseCase.deleteTweet(tweetId);
     }
 
-    @GetMapping("/find_tweets")
-    @ResponseStatus(HttpStatus.ACCEPTED)
+    @GetMapping
     public Collection<TweetResponse> findTweets(){
         return findTweetUseCase.findTweets();
     }

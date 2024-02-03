@@ -2,6 +2,7 @@ package com.example.twitterdemo.user.tweet.service;
 
 import com.example.twitterdemo.user.profile.entity.UserProfile;
 import com.example.twitterdemo.user.tweet.entity.Tweet;
+import org.springframework.data.domain.Pageable;
 
 import java.util.Collection;
 import java.util.Optional;

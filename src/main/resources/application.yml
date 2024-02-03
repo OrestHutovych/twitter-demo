@@ -7,5 +7,7 @@ spring:
   jpa:
     properties:
       hibernate.jdbc.time_zone: UTC
+      hibernate.format_sql: true
+    show-sql: true
 server:
   port: 8081

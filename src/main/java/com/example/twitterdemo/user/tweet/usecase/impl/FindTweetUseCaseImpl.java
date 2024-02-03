@@ -7,23 +7,29 @@ import com.example.twitterdemo.user.tweet.entity.TweetResponse;
 import com.example.twitterdemo.user.tweet.mapper.TweetToTweetResponseMapper;
 import com.example.twitterdemo.user.tweet.service.TweetService;
 import com.example.twitterdemo.user.tweet.usecase.FindTweetUseCase;
+
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Component;
+import org.springframework.context.annotation.Configuration;
 
 import java.util.Collection;
 
-@Component
+@Configuration
 @RequiredArgsConstructor
 public class FindTweetUseCaseImpl implements FindTweetUseCase {
     private final CurrentUserProfileApiService currentUserProfileApiService;
     private final TweetToTweetResponseMapper tweetToTweetResponseMapper;
     private final TweetService tweetService;
+
+
+
+
     @Override
     public Collection<TweetResponse> findTweets() {
         UserProfile userProfile = currentUserProfileApiService.currentUserProfile();
         Collection<Tweet> allTweets = tweetService.findAllTweets(userProfile);
         return allTweets
                 .stream()
-                .map(tweetToTweetResponseMapper::map).toList();
+                .map(tweetToTweetResponseMapper::map)
+                .toList();
     }
 }

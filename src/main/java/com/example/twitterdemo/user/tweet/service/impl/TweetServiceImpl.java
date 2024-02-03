@@ -4,16 +4,19 @@ import com.example.twitterdemo.user.profile.entity.UserProfile;
 import com.example.twitterdemo.user.tweet.entity.Tweet;
 import com.example.twitterdemo.user.tweet.repository.TweetRepository;
 import com.example.twitterdemo.user.tweet.service.TweetService;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
 import java.util.Optional;
 
 @Service
-@RequiredArgsConstructor
 public class TweetServiceImpl implements TweetService {
     private final TweetRepository tweetRepository;
+
+    public TweetServiceImpl(TweetRepository tweetRepository) {
+        this.tweetRepository = tweetRepository;
+    }
+
     @Override
     public Tweet createTweet(Tweet tweet) {
         return tweetRepository.save(tweet);
