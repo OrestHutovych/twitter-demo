@@ -42,7 +42,7 @@ public class TweetController {
         tweetDeleteUseCase.deleteTweet(tweetId);
     }
 
-    @GetMapping
+    @GetMapping()
     public Collection<TweetResponse> findTweets(){
         return findTweetUseCase.findTweets();
     }
