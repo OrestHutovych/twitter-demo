@@ -1,10 +1,13 @@
 package com.example.twitterdemo.user.subsriptions.service.impl;
 
+import com.example.twitterdemo.user.profile.entity.UserProfile;
 import com.example.twitterdemo.user.subsriptions.entity.Subscription;
 import com.example.twitterdemo.user.subsriptions.repository.SubscriptionRepository;
 import com.example.twitterdemo.user.subsriptions.service.SubscriptionService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.Collection;
 
 @Service
 @RequiredArgsConstructor
@@ -24,5 +27,10 @@ public class SubscriptionServiceImpl implements SubscriptionService {
     @Override
     public boolean existsSubscription(Subscription subscription) {
         return subscriptionRepository.existsByFollowerAndFollowed(subscription.getFollower(),subscription.getFollowed());
+    }
+
+    @Override
+    public Collection<Subscription> findAllFollowerByUserProfile(UserProfile userProfile) {
+        return subscriptionRepository.findAllByFollowed(userProfile);
     }
 }
