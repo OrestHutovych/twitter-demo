@@ -4,9 +4,10 @@ import com.example.twitterdemo.user.profile.entity.UserProfile;
 import com.example.twitterdemo.user.tweet.entity.Tweet;
 import com.example.twitterdemo.user.tweet.repository.TweetRepository;
 import com.example.twitterdemo.user.tweet.service.TweetService;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.Collection;
 import java.util.Optional;
 
 @Service
@@ -32,8 +33,8 @@ public class TweetServiceImpl implements TweetService {
     }
 
     @Override
-    public Collection<Tweet> findAllTweets(UserProfile userProfile) {
-        return tweetRepository.findAllByUserProfile(userProfile);
+    public Page<Tweet> findAllTweets(UserProfile userProfile, Pageable pageable) {
+        return tweetRepository.findAllByUserProfile(userProfile, pageable);
     }
 
     @Override

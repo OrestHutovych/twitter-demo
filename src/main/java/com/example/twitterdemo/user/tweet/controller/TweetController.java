@@ -1,6 +1,7 @@
 package com.example.twitterdemo.user.tweet.controller;
 
 import com.example.twitterdemo.user.tweet.entity.TweetEditRequest;
+import com.example.twitterdemo.user.tweet.entity.TweetFindRequest;
 import com.example.twitterdemo.user.tweet.entity.TweetResponse;
 import com.example.twitterdemo.user.tweet.usecase.FindTweetUseCase;
 import com.example.twitterdemo.user.tweet.usecase.TweetDeleteUseCase;
@@ -8,7 +9,6 @@ import com.example.twitterdemo.user.tweet.usecase.TweetEditUseCase;
 import com.example.twitterdemo.user.tweet.usecase.TweetUseCase;
 import com.example.twitterdemo.user.tweet.entity.TweetAddRequest;
 import jakarta.validation.Valid;
-import jakarta.websocket.server.PathParam;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -43,7 +43,9 @@ public class TweetController {
     }
 
     @GetMapping()
-    public Collection<TweetResponse> findTweets(){
-        return findTweetUseCase.findTweets();
+    public Collection<TweetResponse> findTweets(@RequestParam(name = "page") int page,
+                                                @RequestParam(name = "limit") int limit){
+        TweetFindRequest findRequest = new TweetFindRequest(page, limit);
+        return findTweetUseCase.findTweets(findRequest);
     }
 }
