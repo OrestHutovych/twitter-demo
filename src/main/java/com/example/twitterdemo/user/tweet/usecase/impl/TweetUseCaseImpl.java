@@ -1,8 +1,8 @@
 package com.example.twitterdemo.user.tweet.usecase.impl;
 
 import com.example.twitterdemo.user.tweet.entity.Tweet;
-import com.example.twitterdemo.user.tweet.entity.TweetAddRequest;
-import com.example.twitterdemo.user.tweet.entity.TweetResponse;
+import com.example.twitterdemo.user.tweet.entity.request.TweetAddRequest;
+import com.example.twitterdemo.user.tweet.entity.response.TweetResponse;
 import com.example.twitterdemo.user.tweet.mapper.TweetAddRequestToTweetMapper;
 import com.example.twitterdemo.user.tweet.mapper.TweetToTweetResponseMapper;
 import com.example.twitterdemo.user.tweet.service.TweetService;

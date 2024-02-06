@@ -1,4 +1,4 @@
-package com.example.twitterdemo.user.tweet.entity;
+package com.example.twitterdemo.user.tweet.entity.response;
 
 import java.time.Instant;
 

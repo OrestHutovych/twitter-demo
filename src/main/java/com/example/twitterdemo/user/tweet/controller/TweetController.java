@@ -1,13 +1,14 @@
 package com.example.twitterdemo.user.tweet.controller;
 
-import com.example.twitterdemo.user.tweet.entity.TweetEditRequest;
-import com.example.twitterdemo.user.tweet.entity.TweetFindRequest;
-import com.example.twitterdemo.user.tweet.entity.TweetResponse;
+import com.example.twitterdemo.user.tweet.entity.request.TweetEditRequest;
+import com.example.twitterdemo.user.tweet.entity.request.TweetFindRequest;
+import com.example.twitterdemo.user.tweet.entity.request.TweetPageResponse;
+import com.example.twitterdemo.user.tweet.entity.response.TweetResponse;
 import com.example.twitterdemo.user.tweet.usecase.FindTweetUseCase;
 import com.example.twitterdemo.user.tweet.usecase.TweetDeleteUseCase;
 import com.example.twitterdemo.user.tweet.usecase.TweetEditUseCase;
 import com.example.twitterdemo.user.tweet.usecase.TweetUseCase;
-import com.example.twitterdemo.user.tweet.entity.TweetAddRequest;
+import com.example.twitterdemo.user.tweet.entity.request.TweetAddRequest;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -43,8 +44,8 @@ public class TweetController {
     }
 
     @GetMapping()
-    public Collection<TweetResponse> findTweets(@RequestParam(name = "page") int page,
-                                                @RequestParam(name = "limit") int limit){
+    public TweetPageResponse findTweets(@RequestParam(name = "page") int page,
+                                        @RequestParam(name = "limit") int limit){
         TweetFindRequest findRequest = new TweetFindRequest(page, limit);
         return findTweetUseCase.findTweets(findRequest);
     }

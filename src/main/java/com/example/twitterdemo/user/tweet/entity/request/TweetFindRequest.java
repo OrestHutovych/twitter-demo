@@ -1,4 +1,4 @@
-package com.example.twitterdemo.user.tweet.entity;
+package com.example.twitterdemo.user.tweet.entity.request;
 
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;

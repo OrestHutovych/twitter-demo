@@ -1,7 +1,7 @@
 package com.example.twitterdemo.user.tweet.mapper.impl;
 
 import com.example.twitterdemo.user.tweet.entity.Tweet;
-import com.example.twitterdemo.user.tweet.entity.TweetEditRequest;
+import com.example.twitterdemo.user.tweet.entity.request.TweetEditRequest;
 import com.example.twitterdemo.user.tweet.mapper.TweetEditRequestToTweetMapper;
 import com.example.twitterdemo.user.tweet.service.TweetService;
 import lombok.RequiredArgsConstructor;

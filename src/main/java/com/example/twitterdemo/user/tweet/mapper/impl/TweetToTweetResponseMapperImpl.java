@@ -1,7 +1,7 @@
 package com.example.twitterdemo.user.tweet.mapper.impl;
 
 import com.example.twitterdemo.user.tweet.entity.Tweet;
-import com.example.twitterdemo.user.tweet.entity.TweetResponse;
+import com.example.twitterdemo.user.tweet.entity.response.TweetResponse;
 import com.example.twitterdemo.user.tweet.mapper.TweetToTweetResponseMapper;
 import org.springframework.stereotype.Component;
 
