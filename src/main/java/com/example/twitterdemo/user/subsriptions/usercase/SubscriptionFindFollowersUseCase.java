@@ -1,9 +1,12 @@
 package com.example.twitterdemo.user.subsriptions.usercase;
 
-import com.example.twitterdemo.user.subsriptions.entity.FollowerResponse;
+import com.example.twitterdemo.user.subsriptions.entity.request.TweetFindRequest;
+import com.example.twitterdemo.user.subsriptions.entity.response.FollowerPageResponse;
+import jakarta.validation.Valid;
+import org.springframework.validation.annotation.Validated;
 
-import java.util.Collection;
 
+@Validated
 public interface SubscriptionFindFollowersUseCase {
-    Collection<FollowerResponse> getFollowers();
+    FollowerPageResponse getFollowers(@Valid TweetFindRequest tweetFindRequest);
 }

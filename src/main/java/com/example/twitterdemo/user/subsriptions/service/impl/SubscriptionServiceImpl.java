@@ -5,6 +5,8 @@ import com.example.twitterdemo.user.subsriptions.entity.Subscription;
 import com.example.twitterdemo.user.subsriptions.repository.SubscriptionRepository;
 import com.example.twitterdemo.user.subsriptions.service.SubscriptionService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
@@ -30,7 +32,7 @@ public class SubscriptionServiceImpl implements SubscriptionService {
     }
 
     @Override
-    public Collection<Subscription> findAllFollowerByUserProfile(UserProfile userProfile) {
-        return subscriptionRepository.findAllByFollowed(userProfile);
+    public Page<Subscription> findAllFollowerByUserProfile(UserProfile userProfile, Pageable pageable) {
+        return subscriptionRepository.findAllByFollowed(userProfile, pageable);
     }
 }

@@ -1,11 +1,11 @@
 package com.example.twitterdemo.user.profile.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import com.example.twitterdemo.user.subsriptions.entity.Subscription;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.List;
 
 @Entity
 @Getter
@@ -18,4 +18,7 @@ public class UserProfile {
     private String nickname;
     @Column(name = "image_link", nullable = false)
     private String imageLink;
+    @OneToMany
+    @JoinColumn(name = "followed_id", referencedColumnName = "id")
+    private List<Subscription> followers;
 }

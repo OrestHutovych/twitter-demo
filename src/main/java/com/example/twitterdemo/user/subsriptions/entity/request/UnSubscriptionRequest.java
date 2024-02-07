@@ -1,4 +1,4 @@
-package com.example.twitterdemo.user.subsriptions.entity;
+package com.example.twitterdemo.user.subsriptions.entity.request;
 
 import jakarta.validation.constraints.NotNull;
 

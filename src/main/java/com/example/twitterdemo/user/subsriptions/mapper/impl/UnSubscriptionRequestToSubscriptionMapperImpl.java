@@ -4,7 +4,7 @@ import com.example.twitterdemo.user.profile.api.service.CurrentUserProfileApiSer
 import com.example.twitterdemo.user.profile.api.service.UserProfileApiService;
 import com.example.twitterdemo.user.profile.entity.UserProfile;
 import com.example.twitterdemo.user.subsriptions.entity.Subscription;
-import com.example.twitterdemo.user.subsriptions.entity.UnSubscriptionRequest;
+import com.example.twitterdemo.user.subsriptions.entity.request.UnSubscriptionRequest;
 import com.example.twitterdemo.user.subsriptions.mapper.UnSubscriptionRequestToSubscriptionMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;

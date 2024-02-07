@@ -1,7 +1,7 @@
 package com.example.twitterdemo.user.subsriptions.usercase.impl;
 
 import com.example.twitterdemo.user.subsriptions.entity.Subscription;
-import com.example.twitterdemo.user.subsriptions.entity.SubscriptionRequest;
+import com.example.twitterdemo.user.subsriptions.entity.request.SubscriptionRequest;
 import com.example.twitterdemo.user.subsriptions.mapper.SubscriptionRequestToSubscriptionMapper;
 import com.example.twitterdemo.user.subsriptions.service.SubscriptionService;
 import com.example.twitterdemo.user.subsriptions.usercase.SubscriptionUseCase;

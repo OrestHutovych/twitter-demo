@@ -1,8 +1,9 @@
 package com.example.twitterdemo.user.subsriptions.controller;
 
-import com.example.twitterdemo.user.subsriptions.entity.FollowerResponse;
-import com.example.twitterdemo.user.subsriptions.entity.SubscriptionRequest;
-import com.example.twitterdemo.user.subsriptions.entity.UnSubscriptionRequest;
+import com.example.twitterdemo.user.subsriptions.entity.request.TweetFindRequest;
+import com.example.twitterdemo.user.subsriptions.entity.response.FollowerPageResponse;
+import com.example.twitterdemo.user.subsriptions.entity.request.SubscriptionRequest;
+import com.example.twitterdemo.user.subsriptions.entity.request.UnSubscriptionRequest;
 import com.example.twitterdemo.user.subsriptions.usercase.SubscriptionFindFollowersUseCase;
 import com.example.twitterdemo.user.subsriptions.usercase.SubscriptionUseCase;
 import com.example.twitterdemo.user.subsriptions.usercase.UnSubscriptionUseCase;
@@ -10,7 +11,6 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Collection;
 
 @RestController
 @RequestMapping("/api/v1/subscription")
@@ -31,7 +31,9 @@ public class SubscriptionController {
         unSubscriptionUseCase.unsubscription(request);
     }
     @GetMapping("/followers")
-    public Collection<FollowerResponse> getFollowers(){
-        return subscriptionFindFollowersUseCase.getFollowers();
+    public FollowerPageResponse getFollowers(@RequestParam(name = "page") int page,
+                                             @RequestParam(name = "limit") int limit){
+        TweetFindRequest tweetFindRequest = new TweetFindRequest(page,limit);
+        return subscriptionFindFollowersUseCase.getFollowers(tweetFindRequest);
     }
 }

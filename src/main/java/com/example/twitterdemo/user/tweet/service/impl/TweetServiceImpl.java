@@ -38,6 +38,11 @@ public class TweetServiceImpl implements TweetService {
     }
 
     @Override
+    public Page<Tweet> findAllFollowersTweets(UserProfile userProfile, Pageable pageable) {
+        return tweetRepository.findAllFollowerTweets(userProfile.getId(), pageable);
+    }
+
+    @Override
     public void deleteTweet(long tweetId) {
         tweetRepository.deleteById(tweetId);
     }

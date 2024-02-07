@@ -12,5 +12,6 @@ public interface TweetService {
     Tweet editTweet(Tweet tweet);
     Optional<Tweet> findTweetById(long tweetId);
     Page<Tweet> findAllTweets(UserProfile userProfile, Pageable pageable);
+    Page<Tweet> findAllFollowersTweets(UserProfile userProfile, Pageable pageable);
     void deleteTweet(long tweetId);
 }
